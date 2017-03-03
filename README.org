@@ -8,18 +8,18 @@
      + =SheetForward= / =SheetPrevious= : Select the next/previous sheet 
      + =KillRow= : Kill the active row
      + =MoveRow= / =MoveCol= : Move the selection toward the row/column direction by inputted number/alphabet
-       
-     See [[*Default key bindings and function descriptions (including original commands written in =EmacsMode.bas=)][Default key bindings and function descriptions (including original commands written in =EmacsMode.bas=)]] about other functions.
+
+     See [[*Default key bindings and function descriptions][Default key bindings and function descriptions]] about other functions.
    - Remaped the key bindings
 
-     See [[*Default key bindings and function descriptions (including original commands written in =EmacsMode.bas=)][Default key bindings and function descriptions (including original commands written in =EmacsMode.bas=)]] in details.
+     See [[*Default key bindings and function descriptions][Default key bindings and function descriptions]] in details.
 
 ** Install
 *** Use only on the specified book
     Import the module files (=EmacsMode.bas=, =myEmacsKey.bas=) as the standard module and execute the procedure =MyEmacsMode=.
     1. Open the Excel book.
     2. Click Developer>"Visual Basic" on Ribbon (or Alt + F11).
-    # Open =Developer= tab and click Visual Basic (Alt + F11).
+
        → VBE (Visual Basic Editor) is opened
     3. Select the desired project in Project explorer and File>"Import File..." on menu bar (or right click on the desired project and click "Import File...")
     4. Select the module files (=EmacsMode.bas=, =myEmacsKey.bas=) and import.
@@ -37,6 +37,7 @@
     2. Open VBE and import above module files.
     3. The following codes are put into =ThisWorkbook= under the 
        project of =PERSONAL.xlsb=.
+
        #+BEGIN_EXAMPLE
        Private Sub Workbook_Open()
          Call MyEmacsMode
