@@ -9,10 +9,10 @@
      + =KillRow= : Kill the active row
      + =MoveRow= / =MoveCol= : Move the selection toward the row/column direction by inputted number/alphabet
 
-     See [[*Default key bindings and function descriptions][Default key bindings and function descriptions]] about other functions.
+     # See [[*Default key bindings and function descriptions][Default key bindings and function descriptions]] about other functions.
    - Remaped the key bindings
 
-     See [[*Default key bindings and function descriptions][Default key bindings and function descriptions]] in details.
+     # See [[*Default key bindings and function descriptions][Default key bindings and function descriptions]] in details.
 
 ** Install
 *** Use only on the specified book
@@ -38,11 +38,10 @@
     3. The following codes are put into =ThisWorkbook= under the 
        project of =PERSONAL.xlsb=.
 
-       #+BEGIN_EXAMPLE
-       Private Sub Workbook_Open()
-         Call MyEmacsMode
-       End Sub
-       #+END_EXAMPLE
+       : Private Sub Workbook_Open()
+       :   Call MyEmacsMode
+       : End Sub
+
        → The procedure =MyEmacsMode= is read every time Excel is opened.
 
 ** Default key bindings and function descriptions
