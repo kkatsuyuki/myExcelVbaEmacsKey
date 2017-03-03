@@ -36,13 +36,15 @@
        You may delete the macro you made to create this file.
     2. Open VBE and import above module files.
     3. The following codes are put into =ThisWorkbook= under the 
-       project of =PERSONAL.xlsb=.
+       project of =PERSONAL.xlsb=. The procedure =MyEmacsMode= is read 
+       every time Excel is opened.
+       
+    #+BEGIN_EXAMPLE
+    Private Sub Workbook_Open() 
+      Call MyEmacsMode          
+    End Sub                     
+    #+END_EXAMPLE
 
-       : Private Sub Workbook_Open()
-       :   Call MyEmacsMode
-       : End Sub
-
-       → The procedure =MyEmacsMode= is read every time Excel is opened.
 
 ** Default key bindings and function descriptions
    This table includes the commands defined in the dependent module file
