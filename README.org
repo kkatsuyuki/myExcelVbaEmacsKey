@@ -4,7 +4,7 @@
 ** Features
    - Based on EmacsMode.bas 
    # (in [[http://d.hatena.ne.jp/Rion778/20120505/1336229588][this page]])
-   - Added some useful function
+   - Added some useful functions (Followings are some of them)
      + =SheetForward= / =SheetPrevious= : Select the next/previous sheet 
      + =KillRow= : Kill the active row
      + =MoveRow= / =MoveCol= : Move the selection toward the row/column direction by inputted number/alphabet
@@ -13,6 +13,11 @@
    - Remaped the key bindings
 
      # See [[*Default key bindings and function descriptions][Default key bindings and function descriptions]] in details.
+
+** Requirements
+   - Excel
+
+   I see this program work on Excel 2007 and Windows7.
 
 ** Install
 *** Use only on the specified book
@@ -95,6 +100,7 @@
    Modifying is enabled only by modifying imported module directly on VBE or by 
    importing the module file (=myEmacsKey.bas=) you edited.
 
-
+** Future work
+   
 
      
