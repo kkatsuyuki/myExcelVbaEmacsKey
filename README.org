@@ -17,7 +17,7 @@
 ** Requirements
    - Excel
 
-   I see this program work on Excel 2007 and Windows7.
+   I saw this program work on Excel 2007 and Windows7.
 
 ** Install
 *** Use only on the specified book
@@ -100,7 +100,8 @@
    Modifying is enabled only by modifying imported module directly on VBE or by 
    importing the module file (=myEmacsKey.bas=) you edited.
 
-** Future work
-   
-
-     
+** Future works (I want your ideas to solve them)
+   - Move the window of InputBox where it does not prevent viewing
+   - Use the other input method not to create the window instead of using InputBox
+   - Translate ~C-m~ into ~Enter~ like Emacs
+   - Create the =undo= procedure
