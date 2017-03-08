@@ -103,5 +103,7 @@
 ** Future works (I want your ideas to solve them)
    - Move the window of InputBox where it does not prevent viewing
    - Use the other input method not to create the window instead of using InputBox
+   - I want to assign ~C-M-...~ command to ~M-...~ key, but many ~M-...~ keys were shadowed by 
+     the origianl ~M-...~ shortcut keys.
    - Translate ~C-m~ into ~Enter~ like Emacs
    - Create the =undo= procedure
