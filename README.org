@@ -2,7 +2,7 @@
   My configuration of Excel vba to use Emacs key bindings
 
 ** Features
-   - Based on EmacsMode.bas 
+   - Based on EmacsMode.bas in [[https://gist.github.com/nozma/2603524#file-emacsmode-bas][this]]
    # (in [[http://d.hatena.ne.jp/Rion778/20120505/1336229588][this page]])
    - Added some useful functions (Followings are some of them)
      + =SheetForward= / =SheetPrevious= : Select the next/previous sheet 
