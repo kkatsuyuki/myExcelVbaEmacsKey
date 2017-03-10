@@ -60,7 +60,7 @@
    | ~C-f~       | ForwardCellModified     | select forward cell                                                |
    | ~C-b~       | BackwardCell            | select backward cell                                               |
    | ~C-n~       | NextLineModified        | select next line                                                   |
-   | ~C-n~       | PreviousLine            | select previous line                                               |
+   | ~C-p~       | PreviousLine            | select previous line                                               |
    | ~C-M-f~     | MoveCol                 | Move the selection to the row directed by the inputted number      |
    | ~C-M-b~     | MoveCol                 | Move the selection to the row directed by the inputted number      |
    | ~C-M-n~     | MoveRow                 | Move the selection to the column directed by the inputted alphabet |
@@ -103,7 +103,7 @@
 ** Future works (I want your ideas to solve them)
    - Move the window of InputBox where it does not prevent viewing
    - Use the other input method not to create the window instead of using InputBox
-   - I want to assign ~C-M-...~ command to ~M-...~ key, but many ~M-...~ keys were shadowed by 
-     the origianl ~M-...~ shortcut keys.
+   - I want to assign ~C-M-...~ commands to ~M-...~ keys, but many ~M-...~ keys were shadowed by 
+     the default access keys. I want to make them disable.
    - Translate ~C-m~ into ~Enter~ like Emacs
    - Create the =undo= procedure
