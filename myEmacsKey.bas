@@ -1,8 +1,9 @@
 Sub MyEmacsMode()
-   EmacsMode
    With Application
       .OnKey "^{v}" ' paste
       .OnKey "^{z}" ' undo
+      .OnKey "^{b}", "BackwardCell"
+      .OnKey "^{p}", "PreviousLine"
       .OnKey "^{f}","ForwardCellModified"
       .OnKey "^{n}","NextLineModified"
       .OnKey "^%{f}", "MoveCol"
@@ -10,6 +11,9 @@ Sub MyEmacsMode()
       .OnKey "^%{n}", "MoveRow"
       .OnKey "^%{p}", "MoveRow"
       .OnKey "%{g}", "MoveRowCol"
+      .OnKey "^{l}", "Recenter"
+      .OnKey "^{v}", "ScrollUp"
+      .OnKey "^{z}", "ScrollDown"
       .OnKey "^%{j}","SmallScrollDown"
       .OnKey "^%{k}","SmallScrollUp"
       .OnKey "^%{h}","SmallScrollLeft"
@@ -20,6 +24,8 @@ Sub MyEmacsMode()
       .OnKey "^+{k}","KillMultipleRow"
       .OnKey "^{i}","InsertRow"
       .OnKey "^+{i}","InsertMultipleRow"
+      .OnKey "^{a}", "BeginningOfUsedRangeLine"
+      .OnKey "^{e}", "EndOfUsedRangeLine"
       .OnKey "%{<}","BeginningOfUsedRange"
       .OnKey "%{>}","EndOfUsedRange"
       .OnKey "^%{a}","BeginningOfUsedRangeRow"
@@ -28,17 +34,151 @@ Sub MyEmacsMode()
       .OnKey "^{x}", "MyCxMode"
       .OnKey "%{s}","MySaveFile"
       .OnKey "^%{r}","MyFindFile"
+      .OnKey "+{ESC}", "Enable_Keys"
    End With
 End Sub
 
-' modified forward cell
+' -------------------------------------------------------------------------
+' brought from the original EmacsMode.bas
+' -------------------------------------------------------------------------
+' forward Cell
+Sub ForwardCell()
+    If ActiveCell.MergeCells Then
+        If ActiveCell.MergeArea.End(xlToRight).Column = Columns.Count Then Exit Sub
+    End If
+    If ActiveCell.Column <> Columns.Count Then ActiveCell.Offset(0, 1).Activate
+End Sub
+' backward Cell
+Sub BackwardCell()
+    If ActiveCell.Column <> 1 Then ActiveCell.Offset(0, -1).Activate
+End Sub
+' move to the upper line
+Sub PreviousLine()
+    If ActiveCell.Row <> 1 Then ActiveCell.Offset(-1, 0).Activate
+End Sub
+' move to the next line
+Sub NextLine()
+    If ActiveCell.MergeCells Then
+        If ActiveCell.MergeArea.End(xlDown).Row = Rows.Count Then Exit Sub
+    End If
+    If ActiveCell.Row <> Rows.Count Then ActiveCell.Offset(1, 0).Activate
+End Sub
+' move to the first column in the used range
+Sub BeginningOfUsedRangeLine()
+    Cells(ActiveCell.Row, ActiveSheet.UsedRange.Column).Activate
+End Sub
+' move to the last column in the used range
+Sub EndOfUsedRangeLine()
+    Cells(ActiveCell.Row, _
+        ActiveSheet.UsedRange.Columns _
+        (ActiveSheet.UsedRange.Columns.Count).Column).Activate
+End Sub
+' move to the first row in the used range
+Sub BeginningOfUsedRangeRow()
+    Cells(ActiveSheet.UsedRange.Row, ActiveCell.Column).Activate
+End Sub
+' move to the last column in the used range
+Sub EndOfUsedRangeRow()
+    Cells(ActiveSheet.UsedRange.Rows _
+        (ActiveSheet.UsedRange.Rows.Count).Row, _
+        ActiveCell.Column).Activate
+End Sub
+' Scroll up to one screen
+Sub ScrollUp()
+   Dim RowNum As Long
+   Dim ColNum As Long
+   With ActiveWindow
+    RowNum = .ActiveCell.Row - .VisibleRange.Row + 1
+    ColNum = .ActiveCell.Column
+    .LargeScroll down:=1
+    .VisibleRange.Cells(RowNum, ColNum).Activate
+   End With
+End Sub
+' Scroll down to one screen
+Sub ScrollDown()
+   Dim RowNum As Long
+   Dim ColNum As Long
+   With ActiveWindow
+    RowNum = .ActiveCell.Row - .VisibleRange.Row + 1
+    ColNum = .ActiveCell.Column
+    .LargeScroll up:=1
+    .VisibleRange.Cells(RowNum, ColNum).Activate
+   End With
+End Sub
+' Scroll up/down to put the selection to the middle of the rows
+Sub Recenter()
+    Dim x As Long
+    With ActiveWindow
+        x = Int(ActiveCell.Row - (.VisibleRange.Height / ActiveCell.Height) / 2.5)
+        If x > 0 Then
+            .ScrollRow = x
+        End If
+    End With
+End Sub
+ ' Open the search dialog
+Sub Search()
+   Application.Dialogs(xlDialogFormulaFind).Show
+End Sub
+
+' http://www.rondebruin.nl/key.htm
+Sub Enable_Keys()
+    Dim StartKeyCombination As Variant
+    Dim KeysArray As Variant
+    Dim Key As Variant
+    Dim I As Long
+
+    On Error Resume Next
+
+    'Shift key = "+"  (plus sign)
+    'Ctrl key = "^"   (caret)
+    'Alt key = "%"    (percent sign
+    'We fill the array with this keys and the key combinations
+    'Shift-Ctrl, Shift- Alt, Ctrl-Alt, Shift-Ctrl-Alt
+
+    For Each StartKeyCombination In Array("+", "^", "%", "+^", "+%", "^%", "+^%")
+
+        KeysArray = Array("{BS}", "{BREAK}", "{CAPSLOCK}", "{CLEAR}", "{DEL}", _
+                    "{DOWN}", "{END}", "{ENTER}", "~", "{ESC}", "{HELP}", "{HOME}", _
+                    "{INSERT}", "{LEFT}", "{NUMLOCK}", "{PGDN}", "{PGUP}", _
+                    "{RETURN}", "{RIGHT}", "{SCROLLLOCK}", "{TAB}", "{UP}")
+
+        'Enable the StartKeyCombination key(s) with every key in the KeysArray
+        For Each Key In KeysArray
+            Application.OnKey StartKeyCombination & Key
+        Next Key
+
+        'Enable the StartKeyCombination key(s) with every other key
+        For I = 0 To 255
+            Application.OnKey StartKeyCombination & Chr$(I)
+        Next I
+
+        'Enable the F1 - F15 keys in combination with the Shift, Ctrl or Alt key
+        For I = 1 To 15
+            Application.OnKey StartKeyCombination & "{F" & I & "}"
+        Next I
+
+    Next StartKeyCombination
+
+
+    'Enable the F1 - F15 keys
+    For I = 1 To 15
+        Application.OnKey "{F" & I & "}"
+    Next I
+
+    'Enable the PGDN and PGUP keys
+    Application.OnKey "{PGDN}"
+    Application.OnKey "{PGUP}"
+End Sub
+' -------------------------------------------------------------------------
+
+' modified forward cell to make enabled on integrated cell
 Sub ForwardCellModified()
     If ActiveCell.MergeCells Then
         If ActiveCell.MergeArea.Column + ActiveCell.MergeArea.Columns.Count -1 = Columns.Count Then Exit Sub
     End If
     If ActiveCell.Column <> Columns.Count Then ActiveCell.Offset(0, 1).Activate
 End Sub
-
+' modified next line to make enabled on integrated cell
 Sub NextLineModified()
     If ActiveCell.MergeCells Then
         If ActiveCell.MergeArea.Row + ActiveCell.MergeArea.Rows.Count -1 = Rows.Count Then Exit Sub
@@ -203,7 +343,7 @@ Sub MyCxMode()
 End Sub
 
 Sub MyWriteFile
-   WriteFile
+   Application.Dialogs(xlDialogSaveAs).Show
    MyEmacsMode
 End Sub
 
@@ -218,4 +358,9 @@ Sub MySaveFile()
    ' ThisWorkbook.Saved = True
    ' ActiveWorkbook.Saved = True
    MyEmacsMode
+End Sub
+
+Sub MyPrintFile()
+    Application.Dialogs(xlDialogPrint).Show
+    MyEmacsMode
 End Sub

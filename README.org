@@ -2,7 +2,7 @@
   My configuration of Excel vba to use Emacs key bindings
 
 ** Features
-   - Based on EmacsMode.bas in [[https://gist.github.com/nozma/2603524#file-emacsmode-bas][this]]
+   - Refered to EmacsMode.bas in [[https://gist.github.com/nozma/2603524#file-emacsmode-bas][this]]
    # (in [[http://d.hatena.ne.jp/Rion778/20120505/1336229588][this page]])
    - Added some useful functions (Followings are some of them)
      + =SheetForward= / =SheetPrevious= : Select the next/previous sheet 
@@ -21,20 +21,20 @@
 
 ** Install
 *** Use only on the specified book
-    Import the module files (=EmacsMode.bas=, =myEmacsKey.bas=) as the standard module and execute the procedure =MyEmacsMode=.
+    Import the module file (=myEmacsKey.bas=) as the standard module and execute the procedure =MyEmacsMode=.
     1. Open the Excel book.
     2. Click Developer>"Visual Basic" on Ribbon (or Alt + F11).
 
        → VBE (Visual Basic Editor) is opened
     3. Select the desired project in Project explorer and File>"Import File..." on menu bar (or right click on the desired project and click "Import File...")
-    4. Select the module files (=EmacsMode.bas=, =myEmacsKey.bas=) and import.
+    4. Select the module file (=myEmacsKey.bas=) and import.
        
-       → New modules are created under the modules hierarchy on "Project explorer"
+       → The new module is created under the module hierarchy on "Project explorer"
     5. Return to the Excel book window and click Developer>macro on Ribbon and execute =MyEmacsMode=.
 
 *** Use globally
     Create Personal.xlsb (which is always opened internally ,whatever book is opened) and 
-    import the module files (=EmacsMode.bas=, =myEmacsKey.bas=) on it.
+    import the module file (=myEmacsKey.bas=) on it.
     Additionaly you have to register the procedure =MyEmacsMode= so that 
     it can be read every time the book is opened.
     1. Create Personal.xlsb seeing [[https://support.office.com/en-us/article/Copy-your-macros-to-a-Personal-Macro-Workbook-aa439b90-f836-4381-97f0-6e4c3f5ee566][Copy your macros to a Personal Macro Workbook]].
