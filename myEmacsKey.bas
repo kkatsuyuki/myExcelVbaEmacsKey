@@ -31,6 +31,7 @@ Sub MyEmacsMode()
       .OnKey "^%{a}","BeginningOfUsedRangeRow"
       .OnKey "^%{e}","EndOfUsedRangeRow"
       .OnKey "^{t}","CreateSheet"
+      .OnKey "^{s}", "Search"
       .OnKey "^{x}", "MyCxMode"
       .OnKey "%{s}","MySaveFile"
       .OnKey "^%{r}","MyFindFile"
@@ -188,6 +189,7 @@ End Sub
 
 ' move to desired position
 Sub MoveRowCol()
+   Dim targetRange As Range
    On Error GoTo myError
    Set targetRange = Application.InputBox("Move cell to:",Type:=8,Left:=0,Top:=0)
    On Error GoTo 0
@@ -279,6 +281,7 @@ End Sub
       
 Sub KillMultipleRow()
    Dim num As Long
+   Dim i As Integer
    num = Application.InputBox("Number of killed rows:",Type:=1,Left:=0,Top:=0)
    
    For i = 1 To num
@@ -294,6 +297,7 @@ End Sub
    
 Sub InsertMultipleRow()
    Dim num As Long
+   Dim i As Integer
    num = Application.InputBox("Number of rows to be inserted:",Type:=1,Left:=0,Top:=0)
    
    For i = 1 To num
