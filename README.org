@@ -51,10 +51,10 @@
     #+END_EXAMPLE
 
 
-** Default key bindings and function descriptions
-   This table includes the commands defined in the dependent module file
-   (=EmacsMode.bas=).
 
+** Default key bindings and function descriptions
+   # This table includes the commands defined in the dependent module file
+   # (=EmacsMode.bas=).
    | Key Binding         | Function Name           | Description                                                        |
    |---------------------+-------------------------+--------------------------------------------------------------------|
    | ~C-f~               | ForwardCellModified     | select forward cell                                                |
