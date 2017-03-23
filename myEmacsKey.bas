@@ -1,7 +1,10 @@
 Sub MyEmacsMode()
    With Application
       .OnKey "^{v}" ' paste
+      .OnKey "^{y}" ' paste
       .OnKey "^{z}" ' undo
+      .OnKey "^{u}", "ScrollUp"
+      .OnKey "^{d}", "ScrollDown"
       .OnKey "^{b}", "BackwardCell"
       .OnKey "^{p}", "PreviousLine"
       .OnKey "^{f}","ForwardCellModified"
@@ -32,6 +35,7 @@ Sub MyEmacsMode()
       .OnKey "^%{e}","EndOfUsedRangeRow"
       .OnKey "^{t}","CreateSheet"
       .OnKey "^{s}", "Search"
+      .OnKey "^{r}", "Replace"
       .OnKey "^{x}", "MyCxMode"
       .OnKey "%{s}","MySaveFile"
       .OnKey "^%{r}","MyFindFile"
@@ -85,7 +89,7 @@ Sub EndOfUsedRangeRow()
         ActiveCell.Column).Activate
 End Sub
 ' Scroll up to one screen
-Sub ScrollUp()
+Sub ScrollDown()
    Dim RowNum As Long
    Dim ColNum As Long
    With ActiveWindow
@@ -96,7 +100,7 @@ Sub ScrollUp()
    End With
 End Sub
 ' Scroll down to one screen
-Sub ScrollDown()
+Sub ScrollUp()
    Dim RowNum As Long
    Dim ColNum As Long
    With ActiveWindow
@@ -120,6 +124,12 @@ End Sub
 Sub Search()
    Application.Dialogs(xlDialogFormulaFind).Show
 End Sub
+
+' Open the replace dialog
+Sub Replace()
+   Application.Dialogs(xlDialogFormulaReplace).Show
+End Sub
+
 
 ' http://www.rondebruin.nl/key.htm
 Sub Enable_Keys()
@@ -358,7 +368,8 @@ End Sub
 
 ' save file
 Sub MySaveFile()
-   ThisWorkbook.Save
+   ActiveWorkbook.Save
+   ' ThisWorkbook.Save
    ' ThisWorkbook.Saved = True
    ' ActiveWorkbook.Saved = True
    MyEmacsMode
