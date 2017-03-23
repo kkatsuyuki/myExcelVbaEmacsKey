@@ -55,41 +55,42 @@
 ** Default key bindings and function descriptions
    # This table includes the commands defined in the dependent module file
    # (=EmacsMode.bas=).
-   | Key Binding         | Function Name           | Description                                                        |
-   |---------------------+-------------------------+--------------------------------------------------------------------|
-   | ~C-f~               | ForwardCellModified     | select forward cell                                                |
-   | ~C-b~               | BackwardCell            | select backward cell                                               |
-   | ~C-n~               | NextLineModified        | select next line                                                   |
-   | ~C-p~               | PreviousLine            | select previous line                                               |
-   | ~C-M-f~ ~C-M-b~     | MoveCol                 | Move the selection to the row directed by the inputted number      |
-   | ~C-M-n~ ~C-M-p~     | MoveRow                 | Move the selection to the column directed by the inputted alphabet |
-   | ~M-g~               | MoveRowCol              | Move the selection to the cell directed by inputted ID             |
-   | ~C-l~               | Recenter                | Scroll up/down to center the active row                            |
-   | ~C-u~               | ScrollUp                | Scroll up by one page                                              |
-   | ~C-d~               | ScrollDown              | Scroll down by one page                                            |
-   | ~C-M-j~             | SmallScrollDown         | Scroll down by one row                                             |
-   | ~C-M-k~             | SmallScrollUp           | Scroll up by one row                                               |
-   | ~C-M-l~             | SmallScrollRight        | Scroll right by one column                                         |
-   | ~C-M-h~             | SmallScrollLeft         | Scroll left by one column                                          |
-   | ~C-TAB~             | SheetForward            | Select the forward sheet                                           |
-   | ~C-S-TAB~           | SheetPrevious           | Select the previous sheet                                          |
-   | ~C-k~               | KillRow                 | Kill the active row                                                |
-   | ~C-S-k~             | KillMultipleRow         | Kill the multiple rows by the inputted number                      |
-   | ~C-i~               | InsertRow               | Insert a new row                                                   |
-   | ~C-S-i~             | InsertMultipleRow       | Insert the multiple rows by the inputted number                    |
-   | ~M-<~               | BeginningOfUsedRange    | Select the first cell in the used range                            |
-   | ~M->~               | EndOfUsedRange          | Select the last cell in the used range                             |
-   | ~C-M-a~             | BeginningOfUsedRangeRow | Move the selection to the first row in the used range              |
-   | ~C-M-e~             | EndOfUsedRangeRow       | Move the selection to the last row in the used range               |
-   | ~C-t~               | CreateSheet             | Create the new sheet you named after the active sheet              |
-   | ~C-s~               | Search                  | Open the search dialog                                             |
-   | ~C-r~               | Replace                 | Open the replace dialog                                            |
-   | ~M-s~ ~C-x C-s~     | MySaveFile              | Save the book                                                      |
-   | ~C-M-r~ ~C-x C-f~   | MyFindFile              | Open the dialog and select the file to be opened                   |
-   | ~C-x~               | MyCxMode                | The command to change the keymap to use the command starting ~C-x~ |
-   | ~C-x C-w~           | MyWriteFile             | Save the book as another name                                      |
+   | Key Binding | Function Name           | Description                                                        |
+   |-------------+-------------------------+--------------------------------------------------------------------|
+   | ~C-f~       | ForwardCellModified     | select forward cell                                                |
+   | ~C-b~       | BackwardCell            | select backward cell                                               |
+   | ~C-n~       | NextLineModified        | select next line                                                   |
+   | ~C-p~       | PreviousLine            | select previous line                                               |
+   | ~C-M-f~ ~C-M-b~ | MoveCol                 | Move the selection to the row directed by the inputted number      |
+   | ~C-M-n~ ~C-M-p~ | MoveRow                 | Move the selection to the column directed by the inputted alphabet |
+   | ~M-g~       | MoveRowCol              | Move the selection to the cell directed by inputted ID             |
+   | ~C-l~       | Recenter                | Scroll up/down to center the active row                            |
+   | ~C-u~       | ScrollUp                | Scroll up by one page                                              |
+   | ~C-d~       | ScrollDown              | Scroll down by one page                                            |
+   | ~C-M-j~     | SmallScrollDown         | Scroll down by one row                                             |
+   | ~C-M-k~     | SmallScrollUp           | Scroll up by one row                                               |
+   | ~C-M-l~     | SmallScrollRight        | Scroll right by one column                                         |
+   | ~C-M-h~     | SmallScrollLeft         | Scroll left by one column                                          |
+   | ~C-TAB~     | SheetForward            | Select the forward sheet                                           |
+   | ~C-S-TAB~   | SheetPrevious           | Select the previous sheet                                          |
+   | ~C-k~       | KillRow                 | Kill the active row                                                |
+   | ~C-S-k~     | KillMultipleRow         | Kill the multiple rows by the inputted number                      |
+   | ~C-i~       | InsertRow               | Insert a new row                                                   |
+   | ~C-S-i~     | InsertMultipleRow       | Insert the multiple rows by the inputted number                    |
+   | ~M-<~       | BeginningOfUsedRange    | Select the first cell in the used range                            |
+   | ~M->~       | EndOfUsedRange          | Select the last cell in the used range                             |
+   | ~C-M-a~     | BeginningOfUsedRangeRow | Move the selection to the first row in the used range              |
+   | ~C-M-e~     | EndOfUsedRangeRow       | Move the selection to the last row in the used range               |
+   | ~C-t~       | CreateSheet             | Create the new sheet you named after the active sheet              |
+   | ~C-s~       | Search                  | Open the search dialog                                             |
+   | ~C-r~       | Replace                 | Open the replace dialog                                            |
+   | ~C-y~       | paste                   | original paste                                                     |
+   | ~C-x~       | MyCxMode                | The command to change the keymap to use the command starting ~C-x~ |
+   | ~M-s~ ~C-x C-s~ | MySaveFile              | Save the book                                                      |
+   | ~C-M-r~ ~C-x C-f~ | MyFindFile              | Open the dialog and select the file to be opened                   |
+   | ~C-x C-w~   | MyWriteFile             | Save the book as another name                                      |
    | ~C-x C-g~ ~C-x C-e~ | MyEmacsMode             | Activate this emacs key bindings                                   |
-   | ~S-ESC~             | Enable_Keys             | Deactivate this emacs key bindings                                 |
+   | ~S-ESC~     | Enable_Keys             | Deactivate this emacs key bindings                                 |
 
 ** Modify
    Since the configuration meets only my needs, 
