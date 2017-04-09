@@ -1,0 +1,34 @@
+#+BEGIN_EXPORT html
+---
+layout: default
+---
+#+END_EXPORT
+* Motivation
+  I think many Emacs users often feel not user-friendly to use the software 
+  where we cannot use Emacs-like keybindings. 
+  If we have to use such software many times, I think we should change the 
+  keybindings and perhaps make some new function to use similary to Emacs.
+  I often use Excel, Word and some other sofwares of Microsoft especially in
+  my office. So I firstly made Excel VBA module file to enable Emacs users 
+  to use Excel with less stress.
+
+* Features
+  - Emacs-like selection moving (forward: =C-f=, backward: =C-b=, next: =C-n=, 
+  previous: =C-p=)
+  - Move end/start in the active row (end: =C-e=, start: =C-a=)
+  - Kill/Insert row (kill: =C-k= insert: =C-i=)
+  - Kept windows common keybindings (Copy: =C-c=, Paste: =C-v=)
+  - Scroll up/down (up: =C-u=, down: =C-d=)
+  - Other powerful functions
+    + =SheetForward= / =SheetPrevious= : Select the next/previous sheet 
+    + =CreateSheet= : Create the new sheet named by your input
+    + =MoveRow= / =MoveCol= : Move the selection toward the row/column direction by inputted number/alphabet
+
+* Install
+  Simply import the module file =myEmacsKey.bas= and execute.
+  Refer to [[https://github.com/kkatsuyuki/myExcelVbaEmacsKey][README]] in details.
+  
+* Details
+  Refer to [[https://github.com/kkatsuyuki/myExcelVbaEmacsKey][README]].
+
+  
