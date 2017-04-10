@@ -22,6 +22,7 @@ layout: default
     + =SheetForward= / =SheetPrevious= : Select the next/previous sheet 
     + =CreateSheet= : Create the new sheet named by your input
     + =MoveRow= / =MoveCol= : Move the selection toward the row/column direction by inputted number/alphabet
+  - Refered to EmacsMode.bas in [[https://gist.github.com/nozma/2603524#file-emacsmode-bas][this]]      
 
 * Install
   Simply import the module file =myEmacsKey.bas= and execute.

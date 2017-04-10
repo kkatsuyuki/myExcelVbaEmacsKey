@@ -2,17 +2,16 @@
   My configuration of Excel vba to use Emacs key bindings
 
 ** Features
-   - Refered to EmacsMode.bas in [[https://gist.github.com/nozma/2603524#file-emacsmode-bas][this]]
-   # (in [[http://d.hatena.ne.jp/Rion778/20120505/1336229588][this page]])
-   - Added some useful functions (Followings are some of them)
+   - Emacs-like selection moving (forward: =C-f=, backward: =C-b=, next: =C-n=, previous: =C-p=)
+   - Move end/start in the active row (end: =C-e=, start: =C-a=)
+   - Kill/Insert row (kill: =C-k= insert: =C-i=)
+   - Kept windows common keybindings (Copy: =C-c=, Paste: =C-v=)
+   - Scroll up/down (up: =C-u=, down: =C-d=)
+   - Other powerful functions
      + =SheetForward= / =SheetPrevious= : Select the next/previous sheet 
-     + =KillRow= : Kill the active row
+     + =CreateSheet= : Create the new sheet named by your input
      + =MoveRow= / =MoveCol= : Move the selection toward the row/column direction by inputted number/alphabet
-
-     # See [[*Default key bindings and function descriptions][Default key bindings and function descriptions]] about other functions.
-   - Remaped the key bindings
-
-     # See [[*Default key bindings and function descriptions][Default key bindings and function descriptions]] in details.
+   - Refered to EmacsMode.bas in [[https://gist.github.com/nozma/2603524#file-emacsmode-bas][this]]      
 
 ** Requirements
    - Excel
