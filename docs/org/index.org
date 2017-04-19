@@ -31,4 +31,3 @@ layout: default
 * Details
   Refer to [[https://github.com/kkatsuyuki/myExcelVbaEmacsKey][README]].
 
-  Back: [[https://kkatsuyuki.github.io/][kkatsuyuki's github page]]  

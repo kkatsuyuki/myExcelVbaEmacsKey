@@ -1,1 +1,10 @@
 theme: jekyll-theme-cayman
+
+title: "myExcelVbaEmacsKey"
+tagline: Excel vba file to use emacs key bindings and some other useful procedures on Excel
+
+author:
+  name:       kkatsuyuki
+  url:        https://github.com/kkatsuyuki
+
+repo_url: https://github.com/kkatsuyuki/myExcelVbaEmacsKey
