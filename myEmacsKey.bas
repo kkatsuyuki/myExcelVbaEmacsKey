@@ -3,6 +3,7 @@ Sub MyEmacsMode()
       .OnKey "^{v}" ' paste
       .OnKey "^{y}" ' paste
       .OnKey "^{z}" ' undo
+      .OnKey "^{x}" ' cut
       .OnKey "^{u}", "ScrollUp"
       .OnKey "^{d}", "ScrollDown"
       .OnKey "^{b}", "BackwardCell"
@@ -36,8 +37,8 @@ Sub MyEmacsMode()
       .OnKey "^{t}","CreateSheet"
       .OnKey "^{s}", "Search"
       .OnKey "^{r}", "Replace"
-      .OnKey "^{x}", "MyCxMode"
       .OnKey "%{s}","MySaveFile"
+      .OnKey "^%{s}","MyWriteFile"
       .OnKey "^%{r}","MyFindFile"
       .OnKey "+{ESC}", "Enable_Keys"
    End With
@@ -343,18 +344,18 @@ End Sub
 
 
 ' CxMode
-Sub MyCxMode()
-    With Application
-        .OnKey "^{w}", "MyWriteFile"
-        .OnKey "^{g}", "MyEmacsMode"
-        .OnKey "^{e}", "MyEmacsMode"
-        .OnKey "^{f}", "MyFindFile"
-        .OnKey "^{s}", "MySaveFile"
-        .OnKey "^{x}" ' cut
-        .OnKey "^{v}" ' paste
-        .OnKey "^{z}" ' undo
-    End With
-End Sub
+' Sub MyCxMode()
+'     With Application
+'         .OnKey "^{w}", "MyWriteFile"
+'         .OnKey "^{g}", "MyEmacsMode"
+'         .OnKey "^{e}", "MyEmacsMode"
+'         .OnKey "^{f}", "MyFindFile"
+'         .OnKey "^{s}", "MySaveFile"
+'         .OnKey "^{x}" ' cut
+'         .OnKey "^{v}" ' paste
+'         .OnKey "^{z}" ' undo
+'     End With
+' End Sub
 
 Sub MyWriteFile
    Application.Dialogs(xlDialogSaveAs).Show
@@ -369,9 +370,6 @@ End Sub
 ' save file
 Sub MySaveFile()
    ActiveWorkbook.Save
-   ' ThisWorkbook.Save
-   ' ThisWorkbook.Saved = True
-   ' ActiveWorkbook.Saved = True
    MyEmacsMode
 End Sub
 
