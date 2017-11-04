@@ -34,7 +34,7 @@
 *** Use globally
     Create Personal.xlsb (which is always opened internally ,whatever book is opened) and 
     import the module file (=myEmacsKey.bas=) on it.
-    Additionaly you have to register the procedure =MyEmacsMode= so that 
+    Additionaly you have to register =MyEmacsMode= procedure as follows so that
     it can be read every time the book is opened.
     1. Create Personal.xlsb seeing [[https://support.office.com/en-us/article/Copy-your-macros-to-a-Personal-Macro-Workbook-aa439b90-f836-4381-97f0-6e4c3f5ee566][Copy your macros to a Personal Macro Workbook]].
        You may delete the macro you made to create this file.
