@@ -22,6 +22,8 @@ Sub MyEmacsMode()
       .OnKey "^%{k}","SmallScrollUp"
       .OnKey "^%{h}","SmallScrollLeft"
       .OnKey "^%{l}","SmallScrollRight"
+      .OnKey "^{+}","WindowZoom"
+      .OnKey "^{-}","WindowShrink"
       .OnKey "^{TAB}","SheetForward"
       .OnKey "^+{TAB}","SheetPrevious"
       .OnKey "^{k}","KillRow"
@@ -256,6 +258,20 @@ End Sub
 
 Sub SmallScrollDown
    ActiveWindow.SmallScroll Down:=1
+End Sub
+
+' zoom active window
+Sub WindowZoom()
+   Dim wscale
+   wscale = ActiveWindow.zoom
+   ActiveWindow.zoom = wscale + 10
+End Sub
+
+' shrink active window
+Sub WindowShrink()
+   Dim wscale
+   wscale = ActiveWindow.zoom
+   ActiveWindow.zoom = wscale - 10
 End Sub
 
 ' change Sheet
