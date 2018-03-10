@@ -26,6 +26,8 @@ Sub MyEmacsMode()
       .OnKey "^{-}","WindowShrink"
       .OnKey "^{TAB}","SheetForward"
       .OnKey "^+{TAB}","SheetPrevious"
+      .OnKey "^{!}","FirstSheet"
+      .OnKey "^{(}","LastSheet"
       .OnKey "^{k}","KillRow"
       .OnKey "^+{k}","KillMultipleRow"
       .OnKey "^{i}","InsertRow"
@@ -36,6 +38,8 @@ Sub MyEmacsMode()
       .OnKey "%{>}","EndOfUsedRange"
       .OnKey "^%{a}","BeginningOfUsedRangeRow"
       .OnKey "^%{e}","EndOfUsedRangeRow"
+      .OnKey "^{g}","GroupCommand"
+      .OnKey "^{u}","UnGroupCommand"
       .OnKey "^{t}","CreateSheet"
       .OnKey "^{s}", "Search"
       .OnKey "^{r}", "Replace"
@@ -301,6 +305,14 @@ Sub SheetPrevious()
    Worksheets(newId).Activate
 End Sub
 
+Sub FirstSheet()
+   Worksheets(1).Activate
+End Sub
+
+Sub LastSheet()
+   Worksheets(Worksheets.Count).Activate
+End Sub
+
 ' kill Rows
 Sub KillRow()
    Rows(ActiveCell.Row).Delete
@@ -343,6 +355,26 @@ Sub EndOfUsedRange()
           ActiveSheet.UsedRange.Columns _
           (ActiveSheet.UsedRange.Columns.Count).column).Activate
     
+End Sub
+
+' group selected shapes
+Sub GroupCommand()
+   Dim dummy As String
+   On Error GoTo OnlyOneShape
+   dummy = "tmp"
+   Selection.ShapeRange.Group.Name = dummy
+   Exit Sub
+OnlyOneShape:
+    MsgBox "Select two shapes or more!"
+End Sub
+
+' ungroup a group shape
+Sub UnGroupCommand()
+   On Error GoTo NotGroupShape
+   Selection.ShapeRange.Ungroup
+   Exit Sub
+NotGroupShape:
+   MsgBox "Select a group shape"
 End Sub
 
 ' create new sheet after active sheet
