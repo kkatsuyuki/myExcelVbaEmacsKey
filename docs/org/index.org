@@ -16,7 +16,7 @@ layout: default
   - Emacs-like selection moving (forward: =C-f=, backward: =C-b=, next: =C-n=, previous: =C-p=)
   - Move end/start in the active row (end: =C-e=, start: =C-a=)
   - Kill/Insert row (kill: =C-k= insert: =C-i=)
-  - Kept windows common keybindings (Copy: =C-c=, Paste: =C-v=)
+  - Keep windows common keybindings (Copy: =C-c=, Paste: =C-v=)
   - Scroll up/down (up: =C-u=, down: =C-d=)
   - Other powerful functions
     + =SheetForward= / =SheetPrevious= : Select the next/previous sheet 
