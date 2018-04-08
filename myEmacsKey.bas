@@ -4,8 +4,6 @@ Sub MyEmacsMode()
       .OnKey "^{y}" ' paste
       .OnKey "^{z}" ' undo
       .OnKey "^{x}" ' cut
-      .OnKey "^{u}", "ScrollUp"
-      .OnKey "^{d}", "ScrollDown"
       .OnKey "^{b}", "BackwardCell"
       .OnKey "^{p}", "PreviousLine"
       .OnKey "^{f}","ForwardCellModified"
@@ -16,8 +14,8 @@ Sub MyEmacsMode()
       .OnKey "^%{p}", "MoveRow"
       .OnKey "%{g}", "MoveRowCol"
       .OnKey "^{l}", "Recenter"
-      .OnKey "^{u}", "ScrollUp"
-      .OnKey "^{d}", "ScrollDown"
+      ' .OnKey "^{u}", "ScrollUp"
+      ' .OnKey "^{d}", "ScrollDown"
       .OnKey "^%{j}","SmallScrollDown"
       .OnKey "^%{k}","SmallScrollUp"
       .OnKey "^%{h}","SmallScrollLeft"
@@ -41,7 +39,7 @@ Sub MyEmacsMode()
       .OnKey "^{g}","GroupCommand"
       .OnKey "^{u}","UnGroupCommand"
       .OnKey "^{t}","CreateSheet"
-      .OnKey "^{s}", "Search"
+      ' .OnKey "^{s}", "Search"
       .OnKey "^{r}", "Replace"
       .OnKey "%{s}","MySaveFile"
       .OnKey "^%{s}","MyWriteFile"
